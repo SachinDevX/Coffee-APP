@@ -18,7 +18,7 @@ class _ShopPageState extends State<ShopPage> {
     Provider.of<CoffeeShop>(context, listen: false).addItemtocart(coffee);
 
     // Wait for 2 seconds, then show the alert dialog
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 1), () {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -61,8 +61,9 @@ class _ShopPageState extends State<ShopPage> {
                     Coffee eachCoffee = value.coffeeShop[index];
                     return CoffeeTile(
                       coffee: eachCoffee,
-                      icon: Icon(Icons.add),
+                      icon: const Icon(Icons.add),
                       onPressed: () => addtocart(eachCoffee),
+                      isCartPage: false, // Explicitly set to false for shop page
                     );
                   },
                 ),
